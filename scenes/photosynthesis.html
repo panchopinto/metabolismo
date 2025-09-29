@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Fotosíntesis — Escena AR</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.5/aframe/build/aframe-ar.js"></script>
+  <style>body{margin:0;overflow:hidden}.hud{position:fixed;left:10px;top:10px;background:#0b162acc;color:#e5e7eb;padding:10px 12px;border-radius:10px;border:1px solid #1f2a44;font-family:system-ui;font-size:13px}.tag{display:inline-block;background:#22c55e22;border:1px solid #1f2a44;border-radius:8px;padding:2px 6px;margin-right:6px}</style>
+  <script>
+    const url = new URL(location);
+    const noar = url.searchParams.get('noar')==='1';
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if(noar) {
+        document.querySelector('#ar').remove();
+        document.querySelector('#plain').style.display='block';
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="hud">
+    <strong>Fotosíntesis</strong><br/>
+    <span class="tag">AR</span> Modo sin AR: añade <code>?noar=1</code> a la URL.<br/>
+    <small>Marcador: <code>marker-photosynthesis.patt</code></small>
+  </div>
+
+  <a-scene id="ar" renderer="antialias:true;alpha:true" embedded arjs="trackingMethod: best; sourceType: webcam;">
+    <a-assets>
+      <!-- Coloca tus modelos .glb en assets/models y referéncialos aquí -->
+    </a-assets>
+
+    <a-marker type="pattern" url="../assets/markers/marker-photosynthesis.patt">
+      
+  <a-entity position="0 0 0">
+    <a-box width="1.6" height="0.6" depth="0.2" color="#22d3ee"></a-box>
+    <a-text value="Tilacoide (fase luminosa)" position="0 0.5 0" align="center" width="3"></a-text>
+    <a-sphere radius="0.05" color="#f59e0b" position="-0.6 0.2 0" animation="property: position; to: 0.6 0.2 0; dur: 2000; loop:true; dir: alternate"></a-sphere>
+    <a-text value="Luz → ATP + NADPH" position="-0.8 -0.2 0" width="3" color="#e5e7eb"></a-text>
+    <a-box width="1.0" height="0.4" depth="0.2" color="#34d399" position="0 -0.9 0"></a-box>
+    <a-text value="Ciclo de Calvin (glucosa)" position="0 -0.6 0" align="center" width="2"></a-text>
+  </a-entity>
+
+      <a-entity position="0 0 0"></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <a-scene id="plain" style="display:none" renderer="antialias:true;alpha:true">
+    <a-entity position="0 1.6 3">
+      
+  <a-entity position="0 0 0">
+    <a-box width="1.6" height="0.6" depth="0.2" color="#22d3ee"></a-box>
+    <a-text value="Tilacoide (fase luminosa)" position="0 0.5 0" align="center" width="3"></a-text>
+    <a-sphere radius="0.05" color="#f59e0b" position="-0.6 0.2 0" animation="property: position; to: 0.6 0.2 0; dur: 2000; loop:true; dir: alternate"></a-sphere>
+    <a-text value="Luz → ATP + NADPH" position="-0.8 -0.2 0" width="3" color="#e5e7eb"></a-text>
+    <a-box width="1.0" height="0.4" depth="0.2" color="#34d399" position="0 -0.9 0"></a-box>
+    <a-text value="Ciclo de Calvin (glucosa)" position="0 -0.6 0" align="center" width="2"></a-text>
+  </a-entity>
+
+    </a-entity>
+    <a-entity camera position="0 1.6 0"></a-entity>
+  </a-scene>
+</body>
+</html>

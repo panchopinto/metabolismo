@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Glucólisis — Escena AR</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/ar.js@3.4.5/aframe/build/aframe-ar.js"></script>
+  <style>body{margin:0;overflow:hidden}.hud{position:fixed;left:10px;top:10px;background:#0b162acc;color:#e5e7eb;padding:10px 12px;border-radius:10px;border:1px solid #1f2a44;font-family:system-ui;font-size:13px}.tag{display:inline-block;background:#22c55e22;border:1px solid #1f2a44;border-radius:8px;padding:2px 6px;margin-right:6px}</style>
+  <script>
+    const url = new URL(location);
+    const noar = url.searchParams.get('noar')==='1';
+    document.addEventListener('DOMContentLoaded', ()=>{
+      if(noar) {
+        document.querySelector('#ar').remove();
+        document.querySelector('#plain').style.display='block';
+      }
+    });
+  </script>
+</head>
+<body>
+  <div class="hud">
+    <strong>Glucólisis</strong><br/>
+    <span class="tag">AR</span> Modo sin AR: añade <code>?noar=1</code> a la URL.<br/>
+    <small>Marcador: <code>marker-glycolysis.patt</code></small>
+  </div>
+
+  <a-scene id="ar" renderer="antialias:true;alpha:true" embedded arjs="trackingMethod: best; sourceType: webcam;">
+    <a-assets>
+      <!-- Coloca tus modelos .glb en assets/models y referéncialos aquí -->
+    </a-assets>
+
+    <a-marker type="pattern" url="../assets/markers/marker-glycolysis.patt">
+      
+  <!-- Glucosa → Piruvato: 10 pasos agrupados -->
+  <a-entity position="0 0 0">
+    <a-box depth="0.1" height="0.3" width="0.6" color="#3b82f6" position="-1 0 0">
+      <a-text value="Glucosa" align="center" color="#fff" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+    <a-entity position="-0.7 0 0">
+      <a-entity animation="property: rotation; to: 0 0 360; loop: true; dur: 2000"></a-entity>
+    </a-entity>
+    <a-box depth="0.1" height="0.3" width="0.6" color="#60a5fa" position="-0.2 0 0">
+      <a-text value="Fase inversión (ATP)" align="center" color="#fff" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+    <a-box depth="0.1" height="0.3" width="0.6" color="#10b981" position="0.6 0 0">
+      <a-text value="Fase pago (ATP+NADH)" align="center" color="#0b1220" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+    <a-box depth="0.1" height="0.3" width="0.6" color="#22d3ee" position="1.4 0 0">
+      <a-text value="Piruvato" align="center" color="#0b1220" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+
+    <!-- flechas -->
+    <a-triangle color="#fff" position="-0.6 0 0" rotation="0 90 90" scale="0.1 0.1 0.1"></a-triangle>
+    <a-triangle color="#fff" position="0.2 0 0" rotation="0 90 90" scale="0.1 0.1 0.1"></a-triangle>
+    <a-triangle color="#fff" position="1.0 0 0" rotation="0 90 90" scale="0.1 0.1 0.1"></a-triangle>
+
+    <a-text value="Proteínas→AA | Carbohidratos→Glucosa | Lípidos→Glicerol/AG" position="-1 -0.5 0" width="4" color="#e5e7eb"></a-text>
+  </a-entity>
+
+      <a-entity position="0 0 0"></a-entity>
+    </a-marker>
+    <a-entity camera></a-entity>
+  </a-scene>
+
+  <a-scene id="plain" style="display:none" renderer="antialias:true;alpha:true">
+    <a-entity position="0 1.6 3">
+      
+  <!-- Glucosa → Piruvato: 10 pasos agrupados -->
+  <a-entity position="0 0 0">
+    <a-box depth="0.1" height="0.3" width="0.6" color="#3b82f6" position="-1 0 0">
+      <a-text value="Glucosa" align="center" color="#fff" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+    <a-entity position="-0.7 0 0">
+      <a-entity animation="property: rotation; to: 0 0 360; loop: true; dur: 2000"></a-entity>
+    </a-entity>
+    <a-box depth="0.1" height="0.3" width="0.6" color="#60a5fa" position="-0.2 0 0">
+      <a-text value="Fase inversión (ATP)" align="center" color="#fff" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+    <a-box depth="0.1" height="0.3" width="0.6" color="#10b981" position="0.6 0 0">
+      <a-text value="Fase pago (ATP+NADH)" align="center" color="#0b1220" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+    <a-box depth="0.1" height="0.3" width="0.6" color="#22d3ee" position="1.4 0 0">
+      <a-text value="Piruvato" align="center" color="#0b1220" position="0 0.25 0" width="2"></a-text>
+    </a-box>
+
+    <!-- flechas -->
+    <a-triangle color="#fff" position="-0.6 0 0" rotation="0 90 90" scale="0.1 0.1 0.1"></a-triangle>
+    <a-triangle color="#fff" position="0.2 0 0" rotation="0 90 90" scale="0.1 0.1 0.1"></a-triangle>
+    <a-triangle color="#fff" position="1.0 0 0" rotation="0 90 90" scale="0.1 0.1 0.1"></a-triangle>
+
+    <a-text value="Proteínas→AA | Carbohidratos→Glucosa | Lípidos→Glicerol/AG" position="-1 -0.5 0" width="4" color="#e5e7eb"></a-text>
+  </a-entity>
+
+    </a-entity>
+    <a-entity camera position="0 1.6 0"></a-entity>
+  </a-scene>
+</body>
+</html>
