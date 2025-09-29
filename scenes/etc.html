@@ -30,9 +30,9 @@
       <!-- Coloca tus modelos .glb en assets/models y referéncialos aquí -->
     </a-assets>
 
-    <a-marker type="pattern" url="../assets/markers/marker-etc.patt">
+    <a-marker type="pattern" url="https://raw.githack.com/AR-js-org/AR.js/master/three.js/data/patt.hiro"marker-etc.patt">
       
-  <a-entity position="0 0 0">
+  <a-entity id="hl" position="0 0 0">
     <a-box color="#ef4444" depth="0.2" height="0.5" width="0.3" position="-1 0 0"></a-box>
     <a-text value="I" position="-1 0.4 0" align="center" width="1.5"></a-text>
     <a-box color="#f59e0b" depth="0.2" height="0.5" width="0.3" position="-0.4 0 0"></a-box>
@@ -54,7 +54,7 @@
   </a-entity>
 
       <a-entity position="0 0 0"></a-entity>
-    </a-marker>
+    <a-entity id="modelHost" position="0 0.1 0"></a-entity><a-entity id="modelHost2" position="2 0.1 0"></a-entity></a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 
@@ -85,5 +85,7 @@
     </a-entity>
     <a-entity camera position="0 1.6 0"></a-entity>
   </a-scene>
+<script type="module">import {tcaSteps, etcSteps, buildStepOverlay} from "../js/steps.js"; import {loadModelOrProxy} from "../js/models.js"; const isTCA = location.pathname.endsWith("tca.html"); buildStepOverlay("hl", isTCA ? tcaSteps : etcSteps); const scene = document.querySelector("a-scene"); loadModelOrProxy(scene, "#modelHost", "etc_complexes");</script>
+<script type="module">import {etcSteps, buildStepOverlay} from "../js/steps.js"; import {loadModelOrProxy} from "../js/models.js"; buildStepOverlay("hl", etcSteps); const scene=document.querySelector("a-scene"); loadModelOrProxy(scene, "#modelHost", "etc_complexes"); loadModelOrProxy(scene, "#modelHost2", "atp_synthase");</script>
 </body>
 </html>

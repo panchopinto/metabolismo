@@ -30,10 +30,10 @@
       <!-- Coloca tus modelos .glb en assets/models y referéncialos aquí -->
     </a-assets>
 
-    <a-marker type="pattern" url="../assets/markers/marker-glycolysis.patt">
+    <a-marker type="pattern" url="https://raw.githack.com/AR-js-org/AR.js/master/three.js/data/patt.hiro">
       
   <!-- Glucosa → Piruvato: 10 pasos agrupados -->
-  <a-entity position="0 0 0">
+  <a-entity id="hl" position="0 0 0">
     <a-box depth="0.1" height="0.3" width="0.6" color="#3b82f6" position="-1 0 0">
       <a-text value="Glucosa" align="center" color="#fff" position="0 0.25 0" width="2"></a-text>
     </a-box>
@@ -95,5 +95,6 @@
     </a-entity>
     <a-entity camera position="0 1.6 0"></a-entity>
   </a-scene>
+<script type="module">import {glycolysisSteps, buildStepOverlay} from "../js/steps.js"; buildStepOverlay("hl", glycolysisSteps);</script>
 </body>
 </html>

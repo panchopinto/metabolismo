@@ -1,0 +1,62 @@
+{
+  "models": [
+    {
+      "id": "mitochondria",
+      "expected": "assets/models/mitochondria.glb",
+      "sources": [
+        {
+          "title": "Sketchfab — Mitochondria (CC BY)",
+          "url": "https://sketchfab.com/3d-models/mitochondria-7445a425050e49daa881070ca6917a91"
+        }
+      ]
+    },
+    {
+      "id": "atp_synthase",
+      "expected": "assets/models/atp_synthase.glb",
+      "sources": [
+        {
+          "title": "Sketchfab — ATP Synthase (CC BY-NC-SA)",
+          "url": "https://sketchfab.com/3d-models/atp-synthase-88b67a82d52e4e3687540d62418010be"
+        },
+        {
+          "title": "NIH 3D — Bovine mitochondrial ATP synthase",
+          "url": "https://3d.nih.gov/entries/3DPX-015770"
+        }
+      ]
+    },
+    {
+      "id": "etc_complexes",
+      "expected": "assets/models/etc_complexes.glb",
+      "sources": [
+        {
+          "title": "Sketchfab — Mitochondria: Electron Transport Chain",
+          "url": "https://sketchfab.com/3d-models/mitochondria-electron-transport-chain-01f7861179454f22b3b541380c895c84"
+        },
+        {
+          "title": "Sketchfab — Complex I (NADH:Ubiquinone Oxidoreductase)",
+          "url": "https://sketchfab.com/3d-models/complex-i-nadh-ubiquinone-oxidoreductase-1ac28890c18647b4a5df48f57cffcdac"
+        }
+      ]
+    },
+    {
+      "id": "chloroplast",
+      "expected": "assets/models/chloroplast.glb",
+      "sources": [
+        {
+          "title": "Sketchfab — Chloroplast (CC BY)",
+          "url": "https://sketchfab.com/3d-models/chloroplast-30bc55b2f763415f9222f876c564be97"
+        },
+        {
+          "title": "Sketchfab — Chloroplast (alt)",
+          "url": "https://sketchfab.com/3d-models/chloroplast-9a244f04a73d46cd8801fd3d9d40726b"
+        }
+      ]
+    }
+  ],
+  "notes": [
+    "Descarga los modelos desde las páginas indicadas (requiere sesión en Sketchfab en algunos casos).",
+    "Abre los archivos en Blender si no están en .glb y exporta a glTF 2.0 (.glb).",
+    "Guárdalos con los nombres indicados en 'expected' dentro de assets/models/.",
+    "Al recargar las escenas, si el archivo existe, se cargará automáticamente; si no, aparecerá un proxy con un enlace para descargar."
+  ]
+}

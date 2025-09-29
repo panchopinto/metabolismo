@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <title>Ruta completa — Escena 3D</title>
+  <script src="https://aframe.io/releases/1.5.0/aframe.min.js"></script>
+  <style>body{margin:0;overflow:hidden}.hud{position:fixed;left:10px;top:10px;background:#0b162acc;color:#e5e7eb;padding:10px 12px;border-radius:10px;border:1px solid #1f2a44;font-family:system-ui;font-size:13px}.tag{display:inline-block;background:#22c55e22;border:1px solid #1f2a44;border-radius:8px;padding:2px 6px;margin-right:6px}</style>
+</head>
+<body>
+  <div class="hud">
+    <strong>Ruta completa</strong><br/>
+    Macronutriente → Glucólisis → Acetil-CoA → TCA → NADH/FADH₂ → ETC → ATP<br/>
+    <small>En vegetal: Fotosíntesis → Glucosa → resto de la ruta.</small>
+  </div>
+
+  <a-scene renderer="antialias:true;alpha:true">
+    <a-entity position="-3 1.6 -3">
+      <!-- Macronutrientes -->
+      <a-box position="-2 0 0" depth="0.2" height="0.6" width="0.9" color="#22c55e"></a-box>
+      <a-text value="Proteínas" position="-2 0.45 0" align="center" width="2"></a-text>
+      <a-box position="-0.8 0 0" depth="0.2" height="0.6" width="0.9" color="#34d399"></a-box>
+      <a-text value="Carbohidratos" position="-0.8 0.45 0" align="center" width="2.4"></a-text>
+      <a-box position="0.4 0 0" depth="0.2" height="0.6" width="0.9" color="#10b981"></a-box>
+      <a-text value="Lípidos" position="0.4 0.45 0" align="center" width="2"></a-text>
+
+      <!-- Flechas a Glucólisis / Glicerol -->
+      <a-triangle color="#fff" position="-1.4 0 0" rotation="0 90 90" scale="0.2 0.2 0.2"></a-triangle>
+      <a-triangle color="#fff" position="-0.2 0 0" rotation="0 90 90" scale="0.2 0.2 0.2"></a-triangle>
+      <a-triangle color="#fff" position="1.0 0 0" rotation="0 90 90" scale="0.2 0.2 0.2"></a-triangle>
+
+      <!-- Glucólisis -->
+      <a-box position="1.6 0 0" depth="0.2" height="0.6" width="1.2" color="#3b82f6"></a-box>
+      <a-text value="Glucólisis" position="1.6 0.45 0" align="center" width="2"></a-text>
+
+      <!-- Piruvato → Acetil-CoA -->
+      <a-triangle color="#fff" position="2.2 0 0" rotation="0 90 90" scale="0.2 0.2 0.2"></a-triangle>
+      <a-box position="3.0 0 0" depth="0.2" height="0.6" width="1.2" color="#60a5fa"></a-box>
+      <a-text value="Acetil-CoA" position="3.0 0.45 0" align="center" width="2"></a-text>
+
+      <!-- TCA -->
+      <a-triangle color="#fff" position="3.6 0 0" rotation="0 90 90" scale="0.2 0.2 0.2"></a-triangle>
+      <a-ring color="#10b981" radius-inner="0.5" radius-outer="0.7" rotation="-90 0 0" position="4.4 0 0">
+        <a-animation attribute="rotation" to="-90 360 0" dur="8000" repeat="indefinite"></a-animation>
+      </a-ring>
+      <a-text value="Ciclo de Krebs" position="4.4 0.45 0" align="center" width="2"></a-text>
+
+      <!-- NADH/FADH2 -->
+      <a-triangle color="#fff" position="5.2 0 0" rotation="0 90 90" scale="0.2 0.2 0.2"></a-triangle>
+      <a-box position="6.0 0 0" depth="0.2" height="0.6" width="1.2" color="#22d3ee"></a-box>
+      <a-text value="NADH / FADH₂" position="6.0 0.45 0" align="center" width="2"></a-text>
+
+      <!-- ETC + ATP -->
+      <a-triangle color="#fff" position="6.6 0 0" rotation="0 90 90" scale="0.2 0.2 0.2"></a-triangle>
+      <a-box position="7.4 0 0" depth="0.2" height="0.6" width="1.2" color="#a78bfa"></a-box>
+      <a-text value="ETC → ATP" position="7.4 0.45 0" align="center" width="2"></a-text>
+
+      <!-- Rama vegetal desde "Fotosíntesis" a carbohidratos -->
+      <a-box position="-0.8 1.0 0" depth="0.2" height="0.6" width="1.4" color="#22d3ee"></a-box>
+      <a-text value="Fotosíntesis (glucosa)" position="-0.8 1.45 0" align="center" width="3"></a-text>
+      <a-triangle color="#fff" position="-0.8 0.7 0" rotation="90 0 0" scale="0.2 0.2 0.2"></a-triangle>
+    </a-entity>
+
+    <a-entity camera position="0 1.6 0"></a-entity>
+  </a-scene>
+</body>
+</html>

@@ -30,7 +30,7 @@
       <!-- Coloca tus modelos .glb en assets/models y referéncialos aquí -->
     </a-assets>
 
-    <a-marker type="pattern" url="../assets/markers/marker-photosynthesis.patt">
+    <a-marker type="pattern" url="https://raw.githack.com/AR-js-org/AR.js/master/three.js/data/patt.kanji"marker-photosynthesis.patt">
       
   <a-entity position="0 0 0">
     <a-box width="1.6" height="0.6" depth="0.2" color="#22d3ee"></a-box>
@@ -42,7 +42,7 @@
   </a-entity>
 
       <a-entity position="0 0 0"></a-entity>
-    </a-marker>
+    <a-entity id="modelHost" position="0 0.1 0"></a-entity></a-marker>
     <a-entity camera></a-entity>
   </a-scene>
 
@@ -61,5 +61,6 @@
     </a-entity>
     <a-entity camera position="0 1.6 0"></a-entity>
   </a-scene>
+<script type="module">import {loadModelOrProxy} from "../js/models.js"; const scene=document.querySelector("a-scene"); loadModelOrProxy(scene, "#modelHost", "chloroplast");</script>
 </body>
 </html>

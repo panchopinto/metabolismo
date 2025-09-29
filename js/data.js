@@ -5,3 +5,4 @@ export const scenes = [
   { id:'photosynthesis', name:'Fotosíntesis', desc:'Cloroplasto: fase luminosa + Calvin', color:'purple', icon:'assets/icons/photosynthesis.svg', href:'scenes/photosynthesis.html', tip:'Sólo en células vegetales' },
   { id:'cell', name:'Visión general', desc:'Mapa: macro‑nutrientes → rutas', color:'pink', icon:'assets/icons/cell.svg', href:'scenes/cell-overview.html', tip:'Relaciones entre rutas' }
 ];
+scenes.push({ id:'ruta', name:'Ruta completa', desc:'Del macronutriente al ATP (y rama vegetal)', color:'blue', icon:'assets/icons/info.svg', href:'scenes/ruta-completa.html', tip:'Panorama general con nodos' });
